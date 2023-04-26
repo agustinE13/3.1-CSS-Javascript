@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Pagina</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="56">
+    <header class="masthead" style="background: url('bg-pattern.png'), linear-gradient(to left, #7b4397, #dc2430);">
+        <div class="container h-100">
+            <div class="row h-100">
+                <script>
+                    function ocultarBloque() {
+                        var bloque = document.getElementById("bloque");
+                        if (bloque.style.display === "none")
+                            bloque.style.display = "block";
+                        else
+                            bloque.style.display = "none";
+                    }
+                </script>
+
+                <div class="col-lg-7 my-auto">
+                    <div class="mx-auto header-content">
+                        <p class="mb-5" onclick="ocultarBloque()">
+                            Esta es una página hecha en html y con los estilos de css bootstrap.
+                            Forma parte de una actividad en donde el objetivo es describir el rol
+                            de las tecnologías HTML, CSS y javascript en una sitio Web. Se debe
+                            integrar en un proyecto los ejemplos relacionados con el
+                            ejemplo de CSS + Javascript donde se elimina un bloque de la página al
+                            pulsar sobre un párrafo: el bloque de abajo va a desparece cuando este parrafo
+                            sea precionado y a un lado se encuentra un formulario para validar correos con js.
+                        </p>
+                        <div id="bloque">
+                            <p class="mb-5">
+                                Este es el bloque que va a desaparecer cuando el parrafo de arriba sea
+                                pulsado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 my-auto">
+                    <div class="container">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label form-label" for="email">correo</label>
+                                <input class="form-control form-control item" type="email" name="email" id="email"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <button class="btn btn-outline-primary" onclick="validarCorreo()" type="button">Validar
+                                    correo</button>
+                            </div>
+                        </form>
+                        <div id="alerta" class="alert" role="alert"></div>
+                        <script>
+                            function validarCorreo() {
+                                const inputCorreo = document.getElementById("email");
+                                const correo = inputCorreo.value.trim();
+                                const regex = /^[a-zA-Z0-9]+([\.-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+([\.-]?[a-zA-Z0-9]+)*(\.[a-zA-Z]{2,})+$/;
+                                const esValido = regex.test(correo);
+                                const alerta = document.getElementById("alerta");
+                                if (esValido) {
+                                    alerta.classList.remove("alert-danger");
+                                    alerta.classList.add("alert-success");
+                                    alerta.textContent = "El correo es válido";
+                                } else {
+                                    alerta.classList.remove("alert-success");
+                                    alerta.classList.add("alert-danger");
+                                    alerta.textContent = "El correo no es válido";
+                                }
+                            }                    
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <footer>
+        <div class="container">
+            <p>©&nbsp;All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/new-age.js"></script>
+</body>
+
+</html>
